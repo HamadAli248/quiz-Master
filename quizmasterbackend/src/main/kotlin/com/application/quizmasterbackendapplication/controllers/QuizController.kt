@@ -1,16 +1,18 @@
 package com.application.quizmasterbackendapplication.controllers
 
 import com.application.quizmasterbackendapplication.query.QueryDatabase
+import com.google.gson.Gson
 import org.springframework.web.bind.annotation.*
 @CrossOrigin
 @RestController
 class QuizController {
     val databaseConnection = QueryDatabase()
+
     @GetMapping("/quiz")
-    fun signIn(@RequestHeader("quizname") quizname: String):String{
-        println(quizname)
-        databaseConnection.queryForQuizQuestions("SELECT * FROM $quizname")
-        return "data fetched successfully"
+    fun signIn(@RequestHeader("quizname") quizname: String): String {
+        val quizQuestions = databaseConnection.queryForQuizQuestions("SELECT * FROM $quizname")
+        var gson = Gson()
+        return gson.toJson(quizQuestions)
     }
 
     @PostMapping("/addquestions")
@@ -24,7 +26,6 @@ class QuizController {
                      @RequestHeader("incorrectAnswer4") incorrectAnswer4: String):String{
         databaseConnection.updateQuiz("insert into $quizname (id, question, correctAnswer, incorrectAnswer1,incorrectAnswer2,incorrectAnswer3,incorrectAnswer4) values ('$id', '“$question”', '“$correctAnswer”', '“$incorrectAnswer1”', '“$incorrectAnswer2”','“$incorrectAnswer3”','“$incorrectAnswer4”')")
         return "added questions successfully"
-
     }
 
     @PostMapping("/deletequizquestions")

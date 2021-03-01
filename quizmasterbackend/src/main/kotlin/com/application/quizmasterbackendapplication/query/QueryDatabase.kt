@@ -13,16 +13,19 @@ class QueryDatabase() {
         }
     }
 
-    fun queryForQuizQuestions(sqlQuery:String) {
-        sql2o.open().use { conn ->
+    fun queryForQuizQuestions(sqlQuery:String):String {
+        return sql2o.open().use { conn ->
             var sql = sqlQuery
             val quizQuestions = conn.createQuery(sql).executeAndFetch(QuizQuestions::class.java)
-            println("Result ===========$quizQuestions")}
+            return@use quizQuestions.toString()
         }
+    }
+
     fun updateQuiz(sqlQuery:String) {
         sql2o.open().use { conn ->
             var sql = sqlQuery
-            conn.createQuery(sql).executeUpdate()
+            val result = conn.createQuery(sql).executeUpdate()
+            println(result.toString())
         }
     }
 
