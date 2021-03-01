@@ -1,23 +1,18 @@
-package com.application.quizmasterbackendapplication.databaseconnection
+package com.application.quizmasterbackendapplication.query
 
 import org.sql2o.Sql2o
 import java.util.*
 
-class ConnectDatabase() {
+class QueryDatabase() {
     val sql2o = Sql2o("jdbc:postgresql://localhost:5432/quizmasterapp", "quizmasterapp", "password")
-    fun login(sqlQuery:String) {
-        sql2o.open().use { conn ->
+    fun login(sqlQuery:String): String {
+        return sql2o.open().use { conn ->
             var sql = sqlQuery
-            val users = conn.createQuery(sql).executeAndFetch(User::class.java)
-            println("Result ===========$users")
-            if(users === null){
-                return@use "successful"
-            }
-            else{
-                return@use "error"
-            }
+            val result = conn.createQuery(sql).executeAndFetch(User::class.java)
+            return@use result.toString()
         }
     }
+
     fun queryForQuizQuestions(sqlQuery:String) {
         sql2o.open().use { conn ->
             var sql = sqlQuery
