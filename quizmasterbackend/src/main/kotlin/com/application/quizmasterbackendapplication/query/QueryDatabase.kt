@@ -22,7 +22,7 @@ class QueryDatabase() {
     }
 
     fun updateQuiz(sqlQuery:String) {
-        sql2o.open().use { conn ->
+        return sql2o.open().use { conn ->
             var sql = sqlQuery
             val result = conn.createQuery(sql).executeUpdate()
             println(result.toString())
