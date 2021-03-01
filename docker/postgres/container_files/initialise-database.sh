@@ -25,3 +25,7 @@ psql -v ON_ERROR_STOP=1 --username quizmasterapp --dbname quizmasterapp <<-EOSQL
     );
 EOSQL
 
+psql -v ON_ERROR_STOP=1 --username quizmasterapp --dbname quizmasterapp <<-EOSQL
+    insert into users (id, username, password, email,permissions )
+    values ('1', 'hamad.ali', 'test', 'hamad.ali@test.com', 'admin');
+EOSQL
