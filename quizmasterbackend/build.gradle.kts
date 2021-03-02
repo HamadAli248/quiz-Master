@@ -21,7 +21,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.sql2o:sql2o:1.5.4")
-
+	implementation("com.google.code.gson:gson:2.8.6")
 	implementation("org.postgresql:postgresql:42.2.2")
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
