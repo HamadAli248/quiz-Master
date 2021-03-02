@@ -1,0 +1,23 @@
+.headerColor {
+  margin-bottom: 0px;
+}
+.navButtons {
+  display: none;
+}
+.menu {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.navlinks {
+  text-decoration: none;
+  color: white;
+}
+.menuLinks {
+  text-decoration: none;
+  color: black;
+}
+@media (min-width: 768px) {
+  .navButtons {
+    display: flex;
+  }
+}
