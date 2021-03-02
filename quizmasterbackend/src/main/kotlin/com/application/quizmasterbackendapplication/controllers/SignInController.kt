@@ -2,18 +2,21 @@ package com.application.quizmasterbackendapplication.controllers
 
 import com.application.quizmasterbackendapplication.query.QueryDatabase
 import org.springframework.web.bind.annotation.*
+data class SignInResult(val Result: String)
+
 @CrossOrigin
 @RestController
 class SignInController {
-    @GetMapping("/signin")
+    @PostMapping("/signin")
     fun signIn(@RequestHeader("username") username: String,
-               @RequestHeader("password") password: String): String {
+               @RequestHeader("password") password: String): SignInResult {
         val databaseConnection = QueryDatabase()
         val loginState = databaseConnection.login("SELECT * FROM users WHERE username LIKE '%$username%' AND password like '%$password%'")
+        SignInResult("Invalid User")
         return if (loginState === "[]"){
-            "Invalid User"
+            SignInResult("Invalid User")
         }else {
-            "Valid User $loginState"
+            SignInResult("Valid User")
         }
     }
 }

@@ -1,0 +1,27 @@
+.LoginInForm {
+  border: 5px solid #555;
+  max-width: 50%;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+h2,
+p {
+  margin: 0.5rem;
+}
+.centred {
+  text-align: center;
+}
+.textInputWrapper {
+  width: 50%;
+  margin: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.input {
+  width: 100%;
+}
+.submitWrapper {
+  flex-grow: 1;
+  margin: 0.5rem;
+}
