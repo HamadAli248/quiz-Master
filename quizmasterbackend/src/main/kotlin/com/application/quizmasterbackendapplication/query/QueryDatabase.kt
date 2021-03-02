@@ -21,11 +21,16 @@ class QueryDatabase() {
         }
     }
 
-    fun updateQuiz(sqlQuery:String) {
+    fun updateQuiz(sqlQuery:String): String {
         return sql2o.open().use { conn ->
-            var sql = sqlQuery
-            val result = conn.createQuery(sql).executeUpdate()
-            println(result.toString())
+            try {
+                var sql = sqlQuery
+                val result = conn.createQuery(sql).executeUpdate()
+                println(result)
+                return@use result.toString()
+            }catch (e: Exception) {
+                return@use e.toString()
+            }
         }
     }
 

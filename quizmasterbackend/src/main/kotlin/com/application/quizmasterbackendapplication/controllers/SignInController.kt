@@ -13,7 +13,7 @@ class SignInController {
         return if (loginState === "[]"){
             "Invalid User"
         }else {
-            "Valid User"
+            "Valid User $loginState"
         }
     }
 }
