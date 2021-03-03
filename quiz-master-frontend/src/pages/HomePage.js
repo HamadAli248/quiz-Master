@@ -3,7 +3,7 @@ import UserContext from "../components/Services/UserContext";
 import Navbar from "../components/Navbar/Navbar";
 
 const HomePage = () => {
-  const { authenticated, setAuthenticated } = useContext(UserContext);
+  const { authenticated } = useContext(UserContext);
   return (
     <div>
       <Navbar />

@@ -14,6 +14,10 @@ psql -v ON_ERROR_STOP=1 --username quizmasterapp --dbname quizmasterapp <<-EOSQL
       email VARCHAR (355) UNIQUE NOT NULL,
       permissions VARCHAR (355) UNIQUE NOT NULL
     );
+    CREATE TABLE quizes (
+      quizname VARCHAR (50) UNIQUE NOT NULL,
+      quizinfo VARCHAR (50) UNIQUE NOT NULL
+    );
     CREATE TABLE questions (
       id serial PRIMARY KEY,
       question VARCHAR (50) UNIQUE NOT NULL,

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -25,9 +25,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ButtonAppBar() {
-  const { authenticated, setAuthenticated } = useContext(UserContext);
+  const { authenticated } = useContext(UserContext);
+  const { permission } = useContext(UserContext);
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -55,6 +57,13 @@ export default function ButtonAppBar() {
               <Link className={styles.menuLinks} to="/">
                 <MenuItem onClick={handleClose}>Home</MenuItem>
               </Link>
+              {permission === "Edit" && authenticated ? (
+                <>
+                  <Link className={styles.menuLinks} to="/admin">
+                    <MenuItem onClick={handleClose}>Admin Portal</MenuItem>
+                  </Link>
+                </>
+              ) : null}
               {authenticated ? (
                 <>
                   <Link className={styles.menuLinks} to="/quiz">
@@ -89,6 +98,15 @@ export default function ButtonAppBar() {
                 Home
               </Link>
             </Button>
+            {permission === "Edit" && authenticated ? (
+              <>
+                <Button color="inherit">
+                  <Link className={styles.navlinks} to="/admin">
+                    Admin Portal
+                  </Link>
+                </Button>
+              </>
+            ) : null}
             {authenticated ? (
               <>
                 <Button color="inherit">

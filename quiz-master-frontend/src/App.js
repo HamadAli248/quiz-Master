@@ -1,18 +1,18 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Main from "./components/Main";
 import UserContext from "./components/Services/UserContext";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
-  const value = useMemo(() => ({ authenticated, setAuthenticated }), [
-    authenticated,
-    setAuthenticated,
-  ]);
+  const [permission, setPermission] = useState("");
+
   return (
     <div className="demo-big-content">
       <div className="page-content">
-        <UserContext.Provider value={value}>
+        <UserContext.Provider
+          value={{ authenticated, setAuthenticated, permission, setPermission }}
+        >
           <Main />
         </UserContext.Provider>
       </div>
