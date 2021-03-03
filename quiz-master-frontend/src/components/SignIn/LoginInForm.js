@@ -20,6 +20,7 @@ const LoginInForm = () => {
     if (userState === "Valid User") {
       setAuthenticated(true);
       setPermission(userPermission);
+      console.log(userPermission);
       setRedirect(true);
     } else {
       setLoginState("Invalid username or password. Or User Does not exit");

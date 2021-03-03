@@ -57,6 +57,16 @@ export default function ButtonAppBar() {
               <Link className={styles.menuLinks} to="/">
                 <MenuItem onClick={handleClose}>Home</MenuItem>
               </Link>
+              {(permission === "View" || permission === "Edit") &&
+              authenticated ? (
+                <>
+                  <Link className={styles.menuLinks} to="/viewcorrectanswers">
+                    <MenuItem onClick={handleClose}>
+                      View Correct Answers
+                    </MenuItem>
+                  </Link>
+                </>
+              ) : null}
               {permission === "Edit" && authenticated ? (
                 <>
                   <Link className={styles.menuLinks} to="/admin">
@@ -98,6 +108,16 @@ export default function ButtonAppBar() {
                 Home
               </Link>
             </Button>
+            {(permission === "View" || permission === "Edit") &&
+            authenticated ? (
+              <>
+                <Button color="inherit">
+                  <Link className={styles.navlinks} to="/viewcorrectanswers">
+                    View Correct Answers
+                  </Link>
+                </Button>
+              </>
+            ) : null}
             {permission === "Edit" && authenticated ? (
               <>
                 <Button color="inherit">
