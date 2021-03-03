@@ -11,13 +11,15 @@ const LoginInForm = () => {
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
   const [loginState, setLoginState] = useState("");
-  const { authenticated, setAuthenticated } = useContext(UserContext);
+  const { setAuthenticated } = useContext(UserContext);
+  const { setPermission } = useContext(UserContext);
+
   const logInUserState = (dataResult) => {
     let userState = dataResult.result;
+    let userPermission = dataResult.permissions;
     if (userState === "Valid User") {
-      console.log("afjshjkdasb");
       setAuthenticated(true);
-      console.log(authenticated);
+      setPermission(userPermission);
       setRedirect(true);
     } else {
       setLoginState("Invalid username or password. Or User Does not exit");

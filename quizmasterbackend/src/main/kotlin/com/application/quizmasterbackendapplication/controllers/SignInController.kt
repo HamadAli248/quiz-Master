@@ -2,7 +2,7 @@ package com.application.quizmasterbackendapplication.controllers
 
 import com.application.quizmasterbackendapplication.query.QueryDatabase
 import org.springframework.web.bind.annotation.*
-data class SignInResult(val Result: String)
+data class SignInResult(val Result: String , val Permissions:String)
 
 @CrossOrigin
 @RestController
@@ -12,11 +12,13 @@ class SignInController {
                @RequestHeader("password") password: String): SignInResult {
         val databaseConnection = QueryDatabase()
         val loginState = databaseConnection.login("SELECT * FROM users WHERE username LIKE '%$username%' AND password like '%$password%'")
-        SignInResult("Invalid User")
         return if (loginState === "[]"){
-            SignInResult("Invalid User")
+            SignInResult("Invalid User", "Invalid")
         }else {
-            SignInResult("Valid User")
+            val queryForPermission =databaseConnection.queryForPermission("select permissions from users where username='$username'")
+            var queryForPermissionValue= queryForPermission.toString().drop(29)
+            var finalValue = queryForPermissionValue?.dropLast(2);
+            SignInResult("Valid User","$finalValue")
         }
     }
 }
