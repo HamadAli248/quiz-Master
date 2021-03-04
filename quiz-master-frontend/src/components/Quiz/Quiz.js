@@ -16,6 +16,7 @@ const Quiz = () => {
       .then((response) => response.json())
       .then((data) => {
         setQuizData(JSON.stringify(data));
+        console.log(data);
       });
   });
   return (
