@@ -6,7 +6,7 @@ import DeleteQuestions from "../components/AdminPage/DeleteQuestion";
 import UpdateQuestion from "../components/AdminPage/UpdateQuestion";
 import ChangeUserPermission from "../components/AdminPage/ChangeUserPermission";
 
-const HomePage = () => {
+const AdminPage = () => {
   const { permission } = useContext(UserContext);
   return (
     <div>
@@ -32,4 +32,4 @@ const HomePage = () => {
     </div>
   );
 };
-export default HomePage;
+export default AdminPage;

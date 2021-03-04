@@ -26,9 +26,27 @@ psql -v ON_ERROR_STOP=1 --username quizmasterapp --dbname quizmasterapp <<-EOSQL
       incorrectAnswer3 VARCHAR (50) UNIQUE NOT NULL,
       incorrectAnswer4 VARCHAR (50) UNIQUE NOT NULL
     );
+    CREATE TABLE quiz3 (
+      id serial PRIMARY KEY,
+      question VARCHAR (50) UNIQUE NOT NULL,
+      correctAnswer VARCHAR (50) UNIQUE NOT NULL,
+      incorrectAnswer1 VARCHAR (50) UNIQUE NOT NULL,
+      incorrectAnswer2 VARCHAR (50) UNIQUE NOT NULL,
+      incorrectAnswer3 VARCHAR (50) UNIQUE NOT NULL,
+      incorrectAnswer4 VARCHAR (50) UNIQUE NOT NULL
+    );
+    CREATE TABLE quiz4 (
+      id serial PRIMARY KEY,
+      question VARCHAR (50) UNIQUE NOT NULL,
+      correctAnswer VARCHAR (50) UNIQUE NOT NULL,
+      incorrectAnswer1 VARCHAR (50) UNIQUE NOT NULL,
+      incorrectAnswer2 VARCHAR (50) UNIQUE NOT NULL,
+      incorrectAnswer3 VARCHAR (50) UNIQUE NOT NULL,
+      incorrectAnswer4 VARCHAR (50) UNIQUE NOT NULL
+    );
 EOSQL
 
 psql -v ON_ERROR_STOP=1 --username quizmasterapp --dbname quizmasterapp <<-EOSQL
-    insert into users (id, username, password, email,permissions )
-    values ('1', 'hamad.ali', 'test', 'hamad.ali@test.com', 'admin');
+    insert into users (id, username, password,permissions )
+    values ('1', 'hamad.ali', 'test', 'Edit');
 EOSQL
