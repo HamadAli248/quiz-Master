@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../components/Navbar/Navbar";
-import Quiz from "../components/Quiz/Quiz";
+import QuizSelectionPage from "../components/Quiz/QuizSelectionPage";
 
 const QuizPage = () => {
   return (
     <div>
       <Navbar />
       <h1>Take A quiz</h1>
-      <Quiz />
+      <QuizSelectionPage />
     </div>
   );
 };
