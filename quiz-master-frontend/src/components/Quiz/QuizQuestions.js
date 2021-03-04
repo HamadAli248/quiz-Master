@@ -10,7 +10,9 @@ const QuizQuestions = (data) => {
 
   return (
     <div>
-      <div>{question}</div>
+      <div>
+        <h3>{question}</h3>
+      </div>
       <button>{correctAnswer}</button>
       <button>{incorrectAnswer1}</button>
       <button>{incorrectAnswer2}</button>

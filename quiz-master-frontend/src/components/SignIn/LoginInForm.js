@@ -23,7 +23,7 @@ const LoginInForm = () => {
       console.log(userPermission);
       setRedirect(true);
     } else {
-      setLoginState("Invalid username or password. Or User Does not exit");
+      setLoginState(dataResult.result);
     }
   };
   const login = (e) => {

@@ -25,6 +25,7 @@ dependencies {
 	implementation("org.postgresql:postgresql:42.2.2")
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	implementation ("org.mindrot:jbcrypt:0.4")
 }
 
 tasks.withType<KotlinCompile> {
