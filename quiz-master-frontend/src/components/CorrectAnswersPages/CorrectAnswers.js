@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import QuizQuestions from "./CorrectAnswersComponent";
-
-const CorrectAnswer = () => {
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+export default function CorrectAnswer(props) {
   const [quizData, setQuizData] = useState(null);
   let mydata = JSON.parse(quizData);
 
@@ -10,7 +11,7 @@ const CorrectAnswer = () => {
       method: "Get",
       dataType: "JSON",
       headers: {
-        quizname: "questions",
+        quizname: props.quizname,
       },
     })
       .then((response) => response.json())
@@ -32,11 +33,15 @@ const CorrectAnswer = () => {
           <QuizQuestions data={mydata[7]} />
           <QuizQuestions data={mydata[8]} />
           <QuizQuestions data={mydata[9]} />
+          <Button color="inherit">
+            <Link to="/viewcorrectanswers">
+              Back To view Quiz correct answers
+            </Link>
+          </Button>
         </>
       ) : (
         <h1>No Quiz Found</h1>
       )}
     </div>
   );
-};
-export default CorrectAnswer;
+}

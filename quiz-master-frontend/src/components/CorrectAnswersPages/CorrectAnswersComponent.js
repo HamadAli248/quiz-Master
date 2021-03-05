@@ -24,6 +24,7 @@ const CorrectAnswerComponent = (data) => {
         <p>{incorrectAnswer3}</p>
         <p>{incorrectAnswer4}</p>
       </div>
+      <div></div>
     </div>
   );
 };

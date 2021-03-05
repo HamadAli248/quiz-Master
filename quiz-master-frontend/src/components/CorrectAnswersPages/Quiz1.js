@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import UserContext from "../components/Services/UserContext";
-import Navbar from "../components/Navbar/Navbar";
-import QuizSelectionForCorrectAnswer from "../components/CorrectAnswersPages/QuizSelectionForCorrectAnswers";
+import UserContext from "../Services/UserContext";
+import Navbar from "../Navbar/Navbar";
+import CorrectAnswer from "./CorrectAnswers";
 
-const ViewCorrectAnswers = () => {
+const Quiz1 = () => {
   const { permission } = useContext(UserContext);
   return (
     <div>
@@ -19,11 +19,11 @@ const ViewCorrectAnswers = () => {
       <div>
         {permission === "View" || permission === "Edit" ? (
           <>
-            <QuizSelectionForCorrectAnswer />
+            <CorrectAnswer quizname="quiz1" />
           </>
         ) : null}
       </div>
     </div>
   );
 };
-export default ViewCorrectAnswers;
+export default Quiz1;

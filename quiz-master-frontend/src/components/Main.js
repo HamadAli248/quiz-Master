@@ -8,6 +8,9 @@ import ViewCorrectAnswers from "../pages/ViewCorrectAnswerPages";
 import Quiz1 from "./Quiz/Quiz1";
 import Quiz2 from "./Quiz/Quiz2";
 import Quiz3 from "./Quiz/Quiz3";
+import ViewCorrectAnswersQuiz1 from "./CorrectAnswersPages/Quiz1";
+import ViewCorrectAnswersQuiz2 from "./CorrectAnswersPages/Quiz2";
+import ViewCorrectAnswersQuiz3 from "./CorrectAnswersPages/Quiz3";
 
 const Main = () => (
   <Switch>
@@ -19,6 +22,21 @@ const Main = () => (
     <Route exact path="/quiz1" component={Quiz1} />
     <Route exact path="/quiz2" component={Quiz2} />
     <Route exact path="/quiz3" component={Quiz3} />
+    <Route
+      exact
+      path="/viewcorrectanswersquiz1"
+      component={ViewCorrectAnswersQuiz1}
+    />
+    <Route
+      exact
+      path="/viewcorrectanswersquiz2"
+      component={ViewCorrectAnswersQuiz2}
+    />
+    <Route
+      exact
+      path="/viewcorrectanswersquiz3"
+      component={ViewCorrectAnswersQuiz3}
+    />
   </Switch>
 );
 export default Main;

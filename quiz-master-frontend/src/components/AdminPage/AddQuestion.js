@@ -7,6 +7,7 @@ import { UserContext } from "../Services/UserContext";
 
 const AddQuestion = () => {
   const [userId, setUserId] = useState("");
+  const [userQuizName, setuserQuizName] = useState("");
   const [userQuestion, setUserQuestion] = useState("");
   const [userCorrectAnswer, serUserCorrectAnswer] = useState("");
   const [userIncorrectAnswer1, setUserIncorrectAnswer1] = useState("");
@@ -31,7 +32,7 @@ const AddQuestion = () => {
       method: "POST",
       dataType: "JSON",
       headers: {
-        quizname: "questions",
+        quizname: userQuizName,
         permission: permission,
         id: userId,
         question: userQuestion,
@@ -54,6 +55,18 @@ const AddQuestion = () => {
       <form onSubmit={addQuestion}>
         <Box className={styles.textInputWrapper} component="span">
           <TextField
+            label="Quiz Name"
+            id="quizname"
+            type="text"
+            required
+            value={userQuizName}
+            variant="outlined"
+            onChange={(e) => setuserQuizName(e.target.value)}
+            className={styles.input}
+          />
+        </Box>
+        <Box className={styles.textInputWrapper} component="span">
+          <TextField
             label="Question Number"
             id="userId"
             type="number"
@@ -64,6 +77,7 @@ const AddQuestion = () => {
             className={styles.input}
           />
         </Box>
+
         <Box className={styles.textInputWrapper} component="span">
           <TextField
             label="Question"
