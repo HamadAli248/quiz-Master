@@ -20,7 +20,7 @@ export default function QuizSelectionCard(props) {
       <CardActions>
         <Link to={props.quizLink}>
           <Button style={{ margin: "0 auto", padding: "20px" }}>
-            Take The Quiz
+            {props.cta}
           </Button>
         </Link>
       </CardActions>

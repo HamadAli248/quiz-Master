@@ -7,6 +7,7 @@ import { UserContext } from "../Services/UserContext";
 
 const UpdateQuizQuestions = () => {
   const [userId, setUserId] = useState("");
+  const [userQuizName, setuserQuizName] = useState("");
   const [userQuestion, setUserQuestion] = useState("");
   const [userCorrectAnswer, serUserCorrectAnswer] = useState("");
   const [userIncorrectAnswer1, setUserIncorrectAnswer1] = useState("");
@@ -22,7 +23,7 @@ const UpdateQuizQuestions = () => {
       method: "POST",
       dataType: "JSON",
       headers: {
-        quizname: "questions",
+        quizname: userQuizName,
         permission: permission,
         id: userId,
         question: userQuestion,
@@ -43,6 +44,18 @@ const UpdateQuizQuestions = () => {
     <div>
       <h2>Update Quiz Question</h2>
       <form onSubmit={updateQuestion}>
+        <Box className={styles.textInputWrapper} component="span">
+          <TextField
+            label="Quiz Name"
+            id="quizname"
+            type="text"
+            required
+            value={userQuizName}
+            variant="outlined"
+            onChange={(e) => setuserQuizName(e.target.value)}
+            className={styles.input}
+          />
+        </Box>
         <Box className={styles.textInputWrapper} component="span">
           <TextField
             label="Question Number"

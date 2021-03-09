@@ -7,6 +7,7 @@ import { UserContext } from "../Services/UserContext";
 
 const DeleteQuizQuestions = () => {
   const [userId, setUserId] = useState("");
+  const [userQuizName, setuserQuizName] = useState("");
   const { permission } = useContext(UserContext);
   const [postState, setPostState] = useState("");
 
@@ -16,7 +17,7 @@ const DeleteQuizQuestions = () => {
       method: "POST",
       dataType: "JSON",
       headers: {
-        quizname: "questions",
+        quizname: userQuizName,
         permission: permission,
         id: userId,
       },
@@ -31,6 +32,18 @@ const DeleteQuizQuestions = () => {
     <div>
       <h2>Delete a quiz Questions</h2>
       <form onSubmit={deleteQuizQuestion}>
+        <Box className={styles.textInputWrapper} component="span">
+          <TextField
+            label="Quiz Name"
+            id="quizname"
+            type="text"
+            required
+            value={userQuizName}
+            variant="outlined"
+            onChange={(e) => setuserQuizName(e.target.value)}
+            className={styles.input}
+          />
+        </Box>
         <Box className={styles.textInputWrapper} component="span">
           <TextField
             label="Question Number"

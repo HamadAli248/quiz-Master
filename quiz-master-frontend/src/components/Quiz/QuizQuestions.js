@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const QuizQuestions = (data) => {
   const questions = [
@@ -123,7 +125,17 @@ const QuizQuestions = (data) => {
     <div className="app">
       {showScore ? (
         <div className="score-section">
-          You scored {score} out of {questions.length}
+          <div>
+            <h1>
+              {" "}
+              You scored {score} out of {questions.length}
+            </h1>
+          </div>
+          <div>
+            <Button color="inherit">
+              <Link to="/quiz">Back To Quiz selection page</Link>
+            </Button>
+          </div>
         </div>
       ) : (
         <>

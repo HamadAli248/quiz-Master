@@ -6,8 +6,8 @@ const HomePage = () => {
   const { authenticated } = useContext(UserContext);
   return (
     <div>
-      <Navbar />
-      <h1>Welcome to Quiz Manager Application</h1>
+      <Navbar data-cy="header" />
+      <h1 data-cy="welcome-message">Welcome to Quiz Manager Application</h1>
       <h3>{authenticated ? <>Take A quiz</> : <> Please Log In</>}</h3>
     </div>
   );
