@@ -55,13 +55,18 @@ export default function ButtonAppBar() {
               onClose={handleClose}
             >
               <Link className={styles.menuLinks} to="/">
-                <MenuItem onClick={handleClose}>Home</MenuItem>
+                <MenuItem onClick={handleClose} data-cy="home">
+                  Home
+                </MenuItem>
               </Link>
               {(permission === "View" || permission === "Edit") &&
               authenticated ? (
                 <>
                   <Link className={styles.menuLinks} to="/viewcorrectanswers">
-                    <MenuItem onClick={handleClose}>
+                    <MenuItem
+                      onClick={handleClose}
+                      data-cy="viewcorrectanswers"
+                    >
                       View Correct Answers
                     </MenuItem>
                   </Link>
@@ -70,7 +75,9 @@ export default function ButtonAppBar() {
               {permission === "Edit" && authenticated ? (
                 <>
                   <Link className={styles.menuLinks} to="/admin">
-                    <MenuItem onClick={handleClose}>Admin Portal</MenuItem>
+                    <MenuItem onClick={handleClose} data-cy="admin">
+                      Admin Portal
+                    </MenuItem>
                   </Link>
                 </>
               ) : null}
